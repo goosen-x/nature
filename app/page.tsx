@@ -204,8 +204,9 @@ export default function Home() {
 							<div className='bg-white p-4 dark:bg-gray-950'>
 								<h3 className='text-xl font-bold'>Отзыв 1</h3>
 								<p className='text-sm text-gray-500'>
-									"Органический Бустер действительно изменил мою жизнь.\n Я
-									чувствую себя более энергичным и здоровым, чем когда-либо."
+									{
+										'Органический Бустер действительно изменил мою жизнь. Я чувствую себя более энергичным и здоровым, чем когда-либо.'
+									}
 								</p>
 								<div className='flex items-center gap-2 pt-2'>
 									<Avatar className='h-8 w-8 border'>
@@ -252,9 +253,9 @@ export default function Home() {
 							<div className='bg-white p-4 dark:bg-gray-950'>
 								<h3 className='text-xl font-bold'>Отзыв 2</h3>
 								<p className='text-sm text-gray-500'>
-									"Я была скептически настроена, но Органический Бустер\n
-									действительно помог мне справиться со стрессом и повысить\n
-									энергию. Я рекомендую его всем!"
+									{
+										'Я была скептически настроена, но Органический Бустер действительно помог мне справиться со стрессом и повысить энергию. Я рекомендую его всем!'
+									}
 								</p>
 								<div className='flex items-center gap-2 pt-2'>
 									<Avatar className='h-8 w-8 border'>
@@ -289,9 +290,9 @@ export default function Home() {
 							<div className='bg-white p-4 dark:bg-gray-950'>
 								<h3 className='text-xl font-bold'>Отзыв 2</h3>
 								<p className='text-sm text-gray-500'>
-									"Я была скептически настроена, но Органический Бустер\n
-									действительно помог мне справиться со стрессом и повысить\n
-									энергию. Я рекомендую его всем!"
+									{
+										'Я была скептически настроена, но Органический Бустер	действительно помог мне справиться со стрессом и повысить	энергию. Я рекомендую его всем!'
+									}
 								</p>
 								<div className='flex items-center gap-2 pt-2'>
 									<Avatar className='h-8 w-8 border'>

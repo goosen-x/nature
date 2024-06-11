@@ -6,7 +6,7 @@ import { useState } from 'react'
 export default function ContactPage() {
 	const [captcha, setCaptcha] = useState('')
 
-	const handleSubmit = e => {
+	const handleSubmit = (e: any) => {
 		e.preventDefault()
 		// Add form submission logic here
 	}

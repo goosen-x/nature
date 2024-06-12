@@ -7,8 +7,7 @@ export function Footer() {
 			<div className='container mx-auto grid grid-cols-1 gap-8 px-4 md:grid-cols-3 md:px-6'>
 				<div className='flex flex-col items-start gap-4'>
 					<Link className='flex items-center gap-2' href='#'>
-						{/* <LeafIcon className='h-8 w-8 text-[#4caf50]' /> */}
-						<span className='text-xl font-bold text-[#4caf50]'>
+						<span className='text-xl font-bold text-green-600'>
 							Независимый дистрибьютер Медведева&nbsp;А.С.
 						</span>
 					</Link>
@@ -19,28 +18,29 @@ export function Footer() {
 					</div>
 				</div>
 				<div className='flex flex-col items-start gap-4'>
-					<h4 className='text-lg font-bold text-[#4caf50]'>Навигация</h4>
+					<h4 className='text-lg font-bold text-green-600'>Навигация</h4>
 					<div className='flex flex-col gap-2'>
-						<Link className='hover:text-[#4caf50]' href='/products'>
+						<Link className='hover:text-green-600' href='/products'>
 							Продукты
 						</Link>
-						<Link className='hover:text-[#4caf50]' href='/payment'>
+						<Link className='hover:text-green-600' href='/payment'>
 							Доставка и оплата
 						</Link>
-						<Link className='hover:text-[#4caf50]' href='/contacts'>
+						<Link className='hover:text-green-600' href='/contacts'>
 							Контакты
 						</Link>
 					</div>
 				</div>
 				<div className='flex flex-col items-start gap-4'>
-					<h4 className='text-lg font-bold text-[#4caf50]'>Связаться с нами</h4>
+					<h4 className='text-lg font-bold text-green-600'>Связаться с нами</h4>
 					<div className='flex gap-4'>
 						<Link
-							className='hover:text-[#4caf50]'
+							className='hover:text-green-600'
 							href='https://t.me/+79267078064'
 							target='_blank'
 						>
 							<svg
+								className='fill-green-600 transition-colors duration-500 hover:fill-green-800'
 								xmlns='http://www.w3.org/2000/svg'
 								x='0px'
 								y='0px'
@@ -52,11 +52,12 @@ export function Footer() {
 							</svg>
 						</Link>
 						<Link
-							className='hover:text-[#4caf50]'
+							className='hover:text-green-600'
 							href='https://wa.me/79267078064'
 							target='_blank'
 						>
 							<svg
+								className='fill-green-600 transition-colors duration-500 hover:fill-green-800'
 								xmlns='http://www.w3.org/2000/svg'
 								x='0px'
 								y='0px'

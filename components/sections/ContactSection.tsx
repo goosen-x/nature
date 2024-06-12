@@ -5,7 +5,7 @@ import { Input } from '../ui/input'
 
 export const ContactSection = () => {
 	return (
-		<section className='w-full bg-[#e8f5e9] py-12 dark:bg-[#4CAF50]/20 md:py-24 lg:py-32'>
+		<section className='w-full bg-[#e8f5e9] py-12 dark:bg-green-600/20 md:py-24 lg:py-32'>
 			<div className='container m-auto grid items-center justify-center gap-4 px-4 text-center md:px-6'>
 				<div className='space-y-3'>
 					<h2 className='text-3xl font-bold tracking-tighter md:text-4xl/tight'>
@@ -18,13 +18,19 @@ export const ContactSection = () => {
 					</p>
 				</div>
 				<div className='mx-auto w-full max-w-sm space-y-2'>
-					<form className='flex space-x-2'>
+					<form className='grid grid-cols-2 space-x-2'>
 						<Input
 							className='max-w-lg flex-1'
 							placeholder='Введите свой email'
 							type='email'
 						/>
-						<Button type='submit'>Получать обновления</Button>
+
+						<Button
+							className='hover:bg-green-700focus-visible:outline-none inline-flex h-10 items-center justify-center rounded-md bg-green-600 px-8 text-sm font-medium text-gray-50 shadow transition-colors focus-visible:ring-1 focus-visible:ring-[#388e3c] disabled:pointer-events-none disabled:opacity-50 dark:bg-green-600 dark:text-gray-950 dark:hover:bg-[#43a047]/90 dark:focus-visible:ring-[#388e3c]'
+							type='submit'
+						>
+							Получать обновления
+						</Button>
 					</form>
 					<p className='text-xs text-gray-500 dark:text-gray-400'>
 						Подпишитесь, чтобы быть в курсе наших последних продуктов и акций.{' '}

@@ -8,7 +8,7 @@ export const AdvantagesSection = () => {
 			<div className='container m-auto space-y-12 px-4 md:px-6'>
 				<div className='flex flex-col items-center justify-center space-y-4 text-center'>
 					<div className='space-y-2'>
-						<div className='inline-block rounded-lg bg-[#e8f5e9] px-3 py-1 text-sm dark:bg-[#4CAF50]/20'>
+						<div className='inline-block rounded-lg bg-[#e8f5e9] px-3 py-1 text-sm dark:bg-green-600/20'>
 							Проверено временем
 						</div>
 						<h2 className='text-3xl font-bold tracking-tighter sm:text-5xl'>
@@ -68,7 +68,7 @@ export const AdvantagesSection = () => {
 					</div>
 				</div>
 				<div className='flex flex-col items-start justify-center gap-4 sm:flex-row'>
-					<Button className='inline-flex h-10 items-center justify-center rounded-md bg-[#4CAF50] px-8 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-[#43a047] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#388e3c] disabled:pointer-events-none disabled:opacity-50 dark:bg-[#4CAF50] dark:text-gray-950 dark:hover:bg-[#43a047]/90 dark:focus-visible:ring-[#388e3c]'>
+					<Button className='hover:bg-green-700focus-visible:outline-none inline-flex h-10 items-center justify-center rounded-md bg-green-600 px-8 text-sm font-medium text-gray-50 shadow transition-colors focus-visible:ring-1 focus-visible:ring-[#388e3c] disabled:pointer-events-none disabled:opacity-50 dark:bg-green-600 dark:text-gray-950 dark:hover:bg-[#43a047]/90 dark:focus-visible:ring-[#388e3c]'>
 						Оформить заказ
 					</Button>
 				</div>

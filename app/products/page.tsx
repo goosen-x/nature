@@ -10,6 +10,8 @@ import { SortDropdown } from './SortDropdown'
 export default function Component() {
 	const [selectedCategory, setSelectedCategory] = useState('')
 	const [sort, setSort] = useState('low')
+	const [visibleProducts, setVisibleProducts] = useState(12)
+	const qtyShowMore = 8
 
 	const filteredProducts = useMemo(() => {
 		return products
@@ -37,13 +39,17 @@ export default function Component() {
 			})
 	}, [selectedCategory, sort])
 
+	const handleShowMore = () => {
+		setVisibleProducts(prevVisibleProducts => prevVisibleProducts + qtyShowMore)
+	}
+
 	const uniqueCategories = useMemo(() => {
 		const categoriesSet = new Set<string>(
 			products.map(product => product.category)
 		)
 		// @ts-ignore
 		return [...categoriesSet]
-	}, [products])
+	}, [])
 
 	return (
 		<div className='w-full'>
@@ -66,10 +72,18 @@ export default function Component() {
 						<SortDropdown sort={sort} setSort={setSort} />
 					</div>
 					<div className='grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
-						{filteredProducts.map(product => (
+						{filteredProducts.slice(0, visibleProducts).map(product => (
 							<ProductCard key={product.id} product={product} />
 						))}
 					</div>
+					{visibleProducts < filteredProducts.length && (
+						<Button
+							className='hover:bg-green-700focus-visible:outline-none m-auto inline-flex h-10 w-min items-center justify-center rounded-md bg-green-600 px-8 text-sm font-medium text-gray-50 shadow transition-colors focus-visible:ring-1 focus-visible:ring-[#388e3c] disabled:pointer-events-none disabled:opacity-50 dark:bg-green-600 dark:hover:bg-[#43a047]/90 dark:focus-visible:ring-[#388e3c]'
+							onClick={handleShowMore}
+						>
+							Показать ещё {qtyShowMore} товаров
+						</Button>
+					)}
 				</div>
 			</div>
 		</div>

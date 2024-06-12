@@ -20,10 +20,10 @@ export function SortDropdown({ sort, setSort }) {
 			<DropdownMenuContent className='w-[200px]' align='end'>
 				<DropdownMenuRadioGroup value={sort} onValueChange={setSort}>
 					<DropdownMenuRadioItem value='low'>
-						Цена: от низкой к высокой
+						Цена: дешевле
 					</DropdownMenuRadioItem>
 					<DropdownMenuRadioItem value='high'>
-						Цена: от высокой к низкой
+						Цена: дороже
 					</DropdownMenuRadioItem>
 					<DropdownMenuRadioItem value='alphabet'>
 						По алфавиту

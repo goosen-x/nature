@@ -1,6 +1,5 @@
 'use client'
 
-import Image from 'next/image'
 import { useState } from 'react'
 
 export default function ContactPage() {
@@ -20,7 +19,7 @@ export default function ContactPage() {
 						src='https://yandex.ru/map-widget/v1/?um=constructor%3A18232637f5758c8e3baa8925c7530cca5c6d3e3651733f104cf514695d5f0d35&amp;source=constructor'
 						width='1280'
 						height='369'
-						frameborder='0'
+						frameBorder='0'
 					></iframe>
 				</div>
 				<div className='grid gap-4 md:grid-cols-2'>
@@ -37,7 +36,6 @@ export default function ContactPage() {
 							<strong>Телефон:</strong> +7 (926) 707-80-64
 						</p>
 						<p>
-							{/* Email: medvedeva.nsp@ro.ru */}
 							<strong>Email:</strong>{' '}
 							<a href='mailto:medvedeva.nsp@ro.ru'>medvedeva.nsp@ro.ru</a>
 						</p>

@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import React from 'react'
+import { Button } from '../ui/button'
 
 export const AdvantagesSection = () => {
 	return (
@@ -8,15 +9,15 @@ export const AdvantagesSection = () => {
 				<div className='flex flex-col items-center justify-center space-y-4 text-center'>
 					<div className='space-y-2'>
 						<div className='inline-block rounded-lg bg-[#e8f5e9] px-3 py-1 text-sm dark:bg-[#4CAF50]/20'>
-							Естественно мощный
+							Проверено временем
 						</div>
 						<h2 className='text-3xl font-bold tracking-tighter sm:text-5xl'>
 							Используйте силу природы
 						</h2>
-						<p className='max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400'>
-							Наши биологически активные добавки разработаны с тщательно
-							отобранными натуральными ингредиентами, чтобы обеспечить научно
-							обоснованные преимущества для вашего здоровья и благополучия.
+						<p className='max-w-[900px] text-gray-500 dark:text-gray-400 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed'>
+							Биологически активные добавки Natures Sunshine созданы из
+							тщательно отобранных натуральных ингредиентов, чтобы принести
+							доказанную наукой пользу вашему здоровью и благополучию.
 						</p>
 					</div>
 				</div>
@@ -67,12 +68,9 @@ export const AdvantagesSection = () => {
 					</div>
 				</div>
 				<div className='flex flex-col items-start justify-center gap-4 sm:flex-row'>
-					<Link
-						className='inline-flex h-10 items-center justify-center rounded-md bg-[#4CAF50] px-8 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-[#43a047] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#388e3c] disabled:pointer-events-none disabled:opacity-50 dark:bg-[#4CAF50] dark:text-gray-950 dark:hover:bg-[#43a047]/90 dark:focus-visible:ring-[#388e3c]'
-						href='#'
-					>
-						Купить сейчас
-					</Link>
+					<Button className='inline-flex h-10 items-center justify-center rounded-md bg-[#4CAF50] px-8 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-[#43a047] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#388e3c] disabled:pointer-events-none disabled:opacity-50 dark:bg-[#4CAF50] dark:text-gray-950 dark:hover:bg-[#43a047]/90 dark:focus-visible:ring-[#388e3c]'>
+						Оформить заказ
+					</Button>
 				</div>
 			</div>
 		</section>

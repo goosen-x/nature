@@ -15,37 +15,39 @@ export default function ContactPage() {
 		<div className='container mx-auto px-4 py-8 md:py-12'>
 			<h1 className='mb-6 text-2xl font-bold'>Контакты</h1>
 			<div className='mx-auto grid max-w-7xl gap-6 px-4 md:gap-8 md:px-6 lg:max-w-none'>
-				<div className='relative mb-8 h-80 w-full'>
+				<div className='relative mb-24 h-80 w-full'>
 					<iframe
-						src='https://yandex.ru/map-widget/v1/?um=constructor%3Aea9265a15ef1c7a9916d89e268d7b4b0fdc635c68f11624a3ef91a392baad9e2&amp;source=constructor'
-						width='100%'
-						height='100%'
-						frameBorder='0'
-						allowFullScreen
+						src='https://yandex.ru/map-widget/v1/?um=constructor%3A18232637f5758c8e3baa8925c7530cca5c6d3e3651733f104cf514695d5f0d35&amp;source=constructor'
+						width='1280'
+						height='369'
+						frameborder='0'
 					></iframe>
 				</div>
 				<div className='grid gap-4 md:grid-cols-2'>
 					<div>
 						<h2 className='mb-4 text-xl font-bold'>Контактная информация</h2>
 						<p>
-							<strong>Адрес:</strong> г. Казань, ул. Касаткина, 20
+							<strong>Офис: </strong> г. Москва, ул. Хромова, д. 20, оф. 112
 						</p>
 						<p>
-							<strong>Телефон:</strong> +7 (986) 931 77 21
+							<strong>Пункт выдачи: </strong> г. Москва, ул. Перовская, д. 66,
+							к. 2
 						</p>
 						<p>
+							<strong>Телефон:</strong> +7 (926) 707-80-64
+						</p>
+						<p>
+							{/* Email: medvedeva.nsp@ro.ru */}
 							<strong>Email:</strong>{' '}
-							<a href='mailto:nspcompany25@gmail.com'>nspcompany25@gmail.com</a>
+							<a href='mailto:medvedeva.nsp@ro.ru'>medvedeva.nsp@ro.ru</a>
 						</p>
 						<p>
 							<strong>Режим работы:</strong> Пн - Пт: с 9:00 до 19:00 Сб: с
 							11:00 до 17:00
 						</p>
 						<div className='mt-4'>
-							<h3 className='text-lg font-bold'>Реквизиты:</h3>
-							<p>ИП Грибов Максим Александрович</p>
-							<p>ИНН 911112670302 / ОГРНИП 323169000280631</p>
-							<p>Тел.: 8 (800) 511-39-41, 8 (986) 931-77-21</p>
+							<p>Независимый дистрибьютер Медведева&nbsp;А.С.</p>
+							<p>Телефон: +7 (926) 707-80-64</p>
 						</div>
 					</div>
 					<div>

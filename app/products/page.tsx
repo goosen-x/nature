@@ -5,7 +5,6 @@ import { useState, useMemo } from 'react'
 import Link from 'next/link'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
-import { Badge } from '@/components/ui/badge'
 import {
 	Accordion,
 	AccordionItem,
@@ -220,7 +219,7 @@ export default function Component() {
 										alt={product.title}
 										width={300}
 										height={300}
-										className='aspect-square w-full object-cover'
+										className='aspect-square w-full object-contain'
 									/>
 									<span className='absolute right-2 top-2 rounded-full bg-primary px-2 py-1 text-xs text-white'>
 										{/* {product.featured
@@ -236,7 +235,7 @@ export default function Component() {
 									<div className='flex items-center justify-between'>
 										<span className='font-semibold text-primary'>
 											{/* ${product.price.toFixed(2)} */}
-											100
+											{product.price}
 										</span>
 										<Button variant='outline' size='sm'>
 											В корзину
@@ -270,66 +269,6 @@ function ArrowUpDownIcon(props) {
 			<path d='M17 20V4' />
 			<path d='m3 8 4-4 4 4' />
 			<path d='M7 4v16' />
-		</svg>
-	)
-}
-
-function MountainIcon(props) {
-	return (
-		<svg
-			{...props}
-			xmlns='http://www.w3.org/2000/svg'
-			width='24'
-			height='24'
-			viewBox='0 0 24 24'
-			fill='none'
-			stroke='currentColor'
-			strokeWidth='2'
-			strokeLinecap='round'
-			strokeLinejoin='round'
-		>
-			<path d='m8 3 4 8 5-5 5 15H2L8 3z' />
-		</svg>
-	)
-}
-
-function SearchIcon(props) {
-	return (
-		<svg
-			{...props}
-			xmlns='http://www.w3.org/2000/svg'
-			width='24'
-			height='24'
-			viewBox='0 0 24 24'
-			fill='none'
-			stroke='currentColor'
-			strokeWidth='2'
-			strokeLinecap='round'
-			strokeLinejoin='round'
-		>
-			<circle cx='11' cy='11' r='8' />
-			<path d='m21 21-4.3-4.3' />
-		</svg>
-	)
-}
-
-function ShoppingCartIcon(props) {
-	return (
-		<svg
-			{...props}
-			xmlns='http://www.w3.org/2000/svg'
-			width='24'
-			height='24'
-			viewBox='0 0 24 24'
-			fill='none'
-			stroke='currentColor'
-			strokeWidth='2'
-			strokeLinecap='round'
-			strokeLinejoin='round'
-		>
-			<circle cx='8' cy='21' r='1' />
-			<circle cx='19' cy='21' r='1' />
-			<path d='M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12' />
 		</svg>
 	)
 }

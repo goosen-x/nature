@@ -4,7 +4,7 @@ import products from '@/data/products.json'
 import Link from 'next/link'
 
 const ProductCard = ({ src, alt, title, description, price }: any) => (
-	<div className='group relative grid gap-4'>
+	<div className='group relative grid gap-4 rounded-lg border border-gray-200 p-6 transition-opacity hover:opacity-75'>
 		<Image
 			src={src}
 			alt={alt}
@@ -28,7 +28,9 @@ export const ProductsSection = () => {
 			<div className='container mx-auto grid max-w-xl gap-6 px-4 md:gap-8 md:px-6 lg:max-w-none'>
 				<div className='flex flex-col items-start gap-4 md:flex-row md:items-center md:gap-8'>
 					<div className='grid gap-1'>
-						<h1 className='text-2xl font-bold tracking-tight'>Новинки</h1>
+						<h2 className='text-2xl font-bold tracking-tight'>
+							Популярные товары
+						</h2>
 						<p className='text-gray-500 dark:text-gray-400'>
 							Ознакомьтесь с нашими последними поступлениями
 						</p>

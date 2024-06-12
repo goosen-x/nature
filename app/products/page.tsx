@@ -1,21 +1,24 @@
 'use client'
 
+import axios from 'axios'
 import products from '@/data/products.json'
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import { Button } from '@/components/ui/button'
 import { ProductCard } from '@/components/cards/ProductCard'
-import { FilterAccordion } from './FilterAccordion'
-import { SortDropdown } from './SortDropdown'
+import { FilterAccordion } from './widgets/FilterAccordion'
+import { SortDropdown } from './widgets/SortDropdown'
 
 export default function Component() {
 	const [selectedCategory, setSelectedCategory] = useState('')
 	const [sort, setSort] = useState('low')
+	const [priceRange, setPriceRange] = useState('all')
 	const [visibleProducts, setVisibleProducts] = useState(12)
 	const qtyShowMore = 8
 
 	const filteredProducts = useMemo(() => {
 		return products
 			.filter(product => {
+				// Фильтр по категории
 				if (
 					selectedCategory &&
 					selectedCategory !== '' &&
@@ -23,21 +26,34 @@ export default function Component() {
 				) {
 					return false
 				}
+				// Фильтр по цене
+				if (priceRange === 'under1000' && Number(product.price) >= 1000) {
+					return false
+				}
+				if (
+					priceRange === '1000to3000' &&
+					(Number(product.price) < 1000 || Number(product.price) > 3000)
+				) {
+					return false
+				}
+				if (priceRange === 'over3000' && Number(product.price) <= 3000) {
+					return false
+				}
 				return true
 			})
 			.sort((a, b) => {
 				switch (sort) {
 					case 'low':
-						return a.price - b.price
+						return Number(a.price) - Number(b.price)
 					case 'high':
-						return b.price - a.price
+						return Number(b.price) - Number(a.price)
 					case 'alphabet':
 						return a.title.localeCompare(b.title)
 					default:
 						return 0
 				}
 			})
-	}, [selectedCategory, sort])
+	}, [selectedCategory, priceRange, sort])
 
 	const handleShowMore = () => {
 		setVisibleProducts(prevVisibleProducts => prevVisibleProducts + qtyShowMore)
@@ -59,6 +75,8 @@ export default function Component() {
 						categories={uniqueCategories}
 						selectedCategory={selectedCategory}
 						setSelectedCategory={setSelectedCategory}
+						setPriceRange={setPriceRange}
+						selectedPriceRange={priceRange}
 					/>
 				</div>
 				<div className='flex flex-col gap-8'>

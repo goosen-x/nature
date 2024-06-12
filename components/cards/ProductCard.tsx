@@ -1,7 +1,4 @@
-import { useState } from 'react'
 import Image from 'next/image'
-import Link from 'next/link'
-import { Button } from '../ui/button'
 import toNumberWithSpaces from '@/lib/toNumberWithSpaces'
 import { ProductModal } from '../modals/ProductModal'
 
@@ -28,7 +25,7 @@ export const ProductCard = ({ product }) => {
 					</p>
 					<div className='flex items-center justify-between'>
 						<span className='font-semibold text-primary'>
-							{toNumberWithSpaces(product.price)} ₽
+							{toNumberWithSpaces(Math.floor(product.price))} ₽
 						</span>
 						<ProductModal product={product} />
 					</div>

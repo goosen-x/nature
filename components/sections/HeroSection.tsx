@@ -1,14 +1,14 @@
 import { CheckIcon } from 'lucide-react'
 import Image from 'next/image'
-import Link from 'next/link'
+
 import React from 'react'
 
 export const HeroSection = () => {
 	return (
-		<section className='bg-white px-4 py-12 md:px-6'>
-			<div className='container mx-auto grid grid-cols-1 gap-8 md:grid-cols-2'>
+		<section className='w-full bg-[#e8f5e9] py-12 dark:bg-green-600/20 md:py-24 lg:py-32'>
+			<div className='container mx-auto grid grid-cols-1 gap-8 lg:grid-cols-2'>
 				<div className='space-y-4'>
-					<h2 className='text-5xl font-bold'>
+					<h2 className='text-3xl font-bold md:text-5xl'>
 						{"Будьте здоровы с натуральными добавками от Nature's Sunshine"}
 					</h2>
 					<p className='text-gray-500'>

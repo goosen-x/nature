@@ -20,7 +20,7 @@ export const ProductsSection = () => {
 						</p>
 					</div>
 				</div>
-				<div className='grid gap-8 lg:grid-cols-3'>
+				<div className='grid gap-8 md:grid-cols-2 lg:grid-cols-3'>
 					{data.map((product: any) => (
 						<ProductCard key={product.id} product={product} />
 					))}

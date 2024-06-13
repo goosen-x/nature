@@ -12,12 +12,26 @@ export const MetaManifest = () => {
 			/>
 			<meta name='author' content='NSP Health Shop' />
 			<meta name='robots' content='index, follow' />
-			<link rel='shortcut icon' href='/favicon.ico' type='image/x-icon' />
+			<link rel='shortcut icon' href='/meta/favicon.ico' type='image/x-icon' />
+
 			<link
 				rel='apple-touch-icon'
 				sizes='180x180'
-				href='/assets/images/icons/apple-icon-180.png'
+				href='/meta/apple-touch-icon.png'
 			/>
+			<link
+				rel='icon'
+				type='image/png'
+				sizes='32x32'
+				href='/meta/favicon-32x32.png'
+			/>
+			<link
+				rel='icon'
+				type='image/png'
+				sizes='16x16'
+				href='/meta/favicon-16x16.png'
+			/>
+			<link rel='manifest' href='/site.webmanifest' />
 			<meta property='og:type' content='website' />
 			<meta property='og:site_name' content='NSP Health Shop' />
 
@@ -31,7 +45,7 @@ export const MetaManifest = () => {
 				property='og:description'
 				content='Высококачественные биологически активные добавки NSP для здоровья и долголетия. Закажите сейчас и получите доставку по всей России.'
 			/>
-			<meta property='og:image' content='/og-image.jpg' />
+			<meta property='og:image' content='/meta/og-image.jpg' />
 
 			{/* <!-- Twitter Meta Tags --> */}
 			<meta name='twitter:card' content='summary_large_image' />
@@ -45,7 +59,7 @@ export const MetaManifest = () => {
 				name='twitter:description'
 				content='Высококачественные биологически активные добавки NSP для здоровья и долголетия. Закажите сейчас и получите доставку по всей России.'
 			/>
-			<meta name='twitter:image' content='/og-image.jpg' />
+			<meta name='twitter:image' content='/meta/og-image.jpg' />
 		</>
 	)
 }

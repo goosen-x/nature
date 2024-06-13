@@ -3,7 +3,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { useCart } from '@/context/CartContext'
-import { Button } from '../ui/button'
 import { Badge } from '../ui/badge'
 import { ComponentPropsWithoutRef, useEffect, useState } from 'react'
 import {
@@ -45,9 +44,9 @@ export const Header = () => {
 			<div className='block sm:hidden'>
 				<Drawer open={isOpen} onOpenChange={setIsOpen}>
 					<DrawerTrigger>
-						<Button variant={'outline'}>
+						<div>
 							<MenuIcon />
-						</Button>
+						</div>
 					</DrawerTrigger>
 					<DrawerContent>
 						<DrawerFooter>
@@ -102,12 +101,12 @@ const Navigation = ({
 				Контакты
 			</NavLink>
 			<NavLink onClick={() => setIsOpen(false)} href='/cart'>
-				<Button className='inline-flex h-10 items-center justify-center rounded-md bg-green-600 px-8 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-green-700 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#388e3c] disabled:pointer-events-none disabled:opacity-50 dark:bg-green-600 dark:text-gray-950 dark:hover:bg-[#43a047]/90 dark:focus-visible:ring-[#388e3c]'>
+				<div className='inline-flex h-10 items-center justify-center rounded-md bg-green-600 px-8 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-green-700 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#388e3c] disabled:pointer-events-none disabled:opacity-50 dark:bg-green-600 dark:text-gray-950 dark:hover:bg-[#43a047]/90 dark:focus-visible:ring-[#388e3c]'>
 					Корзина
 					<Badge className='ml-4' variant='default'>
 						{count}
 					</Badge>
-				</Button>
+				</div>
 			</NavLink>
 		</nav>
 	)

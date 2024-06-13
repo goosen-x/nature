@@ -12,6 +12,7 @@ import { Button } from '../ui/button'
 import { useCart } from '@/context/CartContext'
 import toNumberWithSpaces from '@/lib/toNumberWithSpaces'
 import { Cross1Icon } from '@radix-ui/react-icons'
+import { useEffect, useState } from 'react'
 
 export type Transaction = {
 	id: number
@@ -30,6 +31,16 @@ export const TransactionTable: React.FC<TransactionTableProps> = ({
 	transactions
 }) => {
 	const { dispatch } = useCart()
+	const [total, setTotal] = useState(0)
+	const [isMounted, setIsMounted] = useState(false)
+
+	useEffect(() => {
+		setIsMounted(true)
+		const totalAmount = transactions.reduce((total, transaction) => {
+			return total + transaction.amount
+		}, 0)
+		setTotal(totalAmount)
+	}, [transactions])
 
 	const handleRemove = transaction => {
 		const productId = transaction.id
@@ -38,9 +49,13 @@ export const TransactionTable: React.FC<TransactionTableProps> = ({
 		}
 	}
 
-	const total = transactions.reduce((total, transaction) => {
-		return total + transaction.amount
-	}, 0)
+	if (!isMounted) {
+		return null // Пока не смонтирован, ничего не рендерим
+	}
+
+	// const total = transactions.reduce((total, transaction) => {
+	// 	return total + transaction.amount
+	// }, 0)
 
 	return (
 		<Table>

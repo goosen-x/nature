@@ -28,8 +28,8 @@ const CartPage: React.FC = () => {
 		.filter(item => item !== null)
 
 	return (
-		<div className='container mx-auto px-4 py-8 md:py-12'>
-			<main className='flex-grow p-0 sm:p-6'>
+		<main className='container mx-auto px-4 py-8 md:py-12'>
+			<div className='flex-grow p-0 sm:p-6'>
 				<div className='mb-4 flex items-center justify-between'>
 					<h1 className='text-lg font-medium'>Корзина</h1>
 				</div>
@@ -37,8 +37,8 @@ const CartPage: React.FC = () => {
 				<div className='flex w-full justify-end'>
 					<ContactModal />
 				</div>
-			</main>
-		</div>
+			</div>
+		</main>
 	)
 }
 

@@ -1,20 +1,26 @@
-import { Copy } from 'lucide-react'
+'use client'
 
-import { Button } from '@/components/ui/button'
+import React from 'react'
 import {
 	Dialog,
-	DialogClose,
+	DialogTrigger,
 	DialogContent,
-	DialogDescription,
-	DialogFooter,
 	DialogHeader,
 	DialogTitle,
-	DialogTrigger
+	DialogDescription
 } from '@/components/ui/dialog'
-import React from 'react'
+import { Button } from '@/components/ui/button'
 import Image from 'next/image'
+import { useCart } from '@/context/CartContext'
+// import { Product } from '@/types' // Предполагается, что тип Product импортируется из файла с типами
 
 export function ProductModal({ product }) {
+	const { dispatch } = useCart()
+
+	const formattedDescription = product.description
+		.split('\n')
+		.map(line => <p key={line}>{line.trim()}</p>)
+
 	return (
 		<Dialog>
 			<DialogTrigger asChild>
@@ -23,7 +29,7 @@ export function ProductModal({ product }) {
 			<DialogContent className='sm:max-w-md'>
 				<DialogHeader>
 					<DialogTitle>{product.title}</DialogTitle>
-					<DialogDescription>{product.description}</DialogDescription>
+					<DialogDescription>{formattedDescription}</DialogDescription>
 				</DialogHeader>
 				<div className='flex items-center space-x-2'>
 					<Image
@@ -34,16 +40,15 @@ export function ProductModal({ product }) {
 						className='aspect-square w-full object-contain'
 					/>
 				</div>
-				<Button variant='outline' size='sm'>
+				<Button
+					variant='outline'
+					size='sm'
+					onClick={() =>
+						dispatch({ type: 'ADD_TO_CART', productId: product.id })
+					}
+				>
 					В корзину
 				</Button>
-				{/* <DialogFooter className='sm:justify-start'>
-					<DialogClose asChild>
-						<Button type='button' variant='secondary'>
-							Close
-						</Button>
-					</DialogClose>
-				</DialogFooter> */}
 			</DialogContent>
 		</Dialog>
 	)

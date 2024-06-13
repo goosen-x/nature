@@ -32,11 +32,8 @@ export const ContactSection = () => {
 							Получать обновления
 						</Button>
 					</form>
-					<p className='text-xs text-gray-500 dark:text-gray-400'>
-						Подпишитесь, чтобы быть в курсе наших последних продуктов и акций.{' '}
-						<Link className='underline underline-offset-2' href='#'>
-							Условия и положения
-						</Link>
+					<p className='m-auto max-w-60 text-xs text-gray-500 dark:text-gray-400'>
+						Подпишитесь, чтобы быть в курсе наших последних продуктов и акций.
 					</p>
 				</div>
 			</div>

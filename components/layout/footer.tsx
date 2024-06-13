@@ -8,7 +8,7 @@ export function Footer() {
 				<div className='flex flex-col items-start gap-4'>
 					<Link className='flex items-center gap-2' href='#'>
 						<span className='text-xl font-bold text-green-600'>
-							Независимый дистрибьютер Медведева&nbsp;А.С.
+							Независимый дистрибьютер Медведева&nbsp;Алина
 						</span>
 					</Link>
 					<div className='flex flex-col gap-2 text-gray-600 dark:text-gray-400'>

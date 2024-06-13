@@ -7,8 +7,12 @@ import { ProductCard } from '../cards/ProductCard'
 export const ProductsSection = () => {
 	const data = [products[5], products[7], products[2]]
 
+	// const data = products.filter((product) => ({
+	// return product.id !== 3538
+	// }))
+
 	return (
-		<section className='w-full py-12 md:py-24 lg:py-32'>
+		<section className='w-full pb-12 pt-0 md:pb-24 lg:pb-32'>
 			<div className='container m-auto space-y-12 px-4 md:px-6'>
 				<div className='flex flex-col items-start gap-4 md:flex-row md:items-center md:gap-8'>
 					<div className='grid gap-1'>

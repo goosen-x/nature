@@ -65,7 +65,7 @@ const ReviewCard = ({ name, rating, review, image }: any) => (
 )
 
 export const ReviewsSection = () => (
-	<section className='w-full py-12 md:py-24 lg:py-32'>
+	<section className='w-full pb-12 pt-0 md:pb-24 lg:pb-32'>
 		<div className='container grid max-w-5xl items-center justify-center gap-8 px-4 md:px-6'>
 			<div className='space-y-3 text-center'>
 				<h2 className='text-3xl font-bold tracking-tighter md:text-4xl/tight'>

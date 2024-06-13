@@ -28,7 +28,7 @@ export async function POST(request: NextRequest) {
 
 		const emailRes = await transporter.sendMail({
 			from: process.env.SMTP_LOGIN,
-			to: process.env.SMTP_TO_PROD,
+			to: 'brdima@mail.ru',
 			subject,
 			html: html // Use the HTML generated from the form data
 		})

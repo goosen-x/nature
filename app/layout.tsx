@@ -4,6 +4,7 @@ import { Prata } from 'next/font/google'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/footer'
 import { CartProvider } from '@/context/CartContext'
+import Head from 'next/head'
 
 const prata = Prata({
 	weight: ['400'],
@@ -23,6 +24,9 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang='en'>
+			{/* <Head>
+				<MetaManifest />
+			</Head> */}
 			<body className={prata.className}>
 				<CartProvider>
 					<Header />

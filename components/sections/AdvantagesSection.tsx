@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import React from 'react'
 import { Button } from '../ui/button'
+import { ContactModal } from '../modals/ContactModal'
 
 const Advantage = ({ title, description }) => (
 	<div className='grid gap-1'>
@@ -86,9 +87,7 @@ export const AdvantagesSection = () => {
 					))}
 				</div>
 				<div className='flex flex-col items-start justify-center gap-4 sm:flex-row'>
-					<Button className='hover:bg-green-700focus-visible:outline-none inline-flex h-10 items-center justify-center rounded-md bg-green-600 px-8 text-sm font-medium text-gray-50 shadow transition-colors focus-visible:ring-1 focus-visible:ring-[#388e3c] disabled:pointer-events-none disabled:opacity-50 dark:bg-green-600 dark:text-gray-950 dark:hover:bg-[#43a047]/90 dark:focus-visible:ring-[#388e3c]'>
-						Оформить заказ
-					</Button>
+					<ContactModal />
 				</div>
 			</div>
 		</section>

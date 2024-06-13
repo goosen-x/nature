@@ -12,43 +12,61 @@ import {
 import { Button } from '@/components/ui/button'
 import Image from 'next/image'
 import { useCart } from '@/context/CartContext'
+import { Badge } from '../ui/badge'
+import toNumberWithSpaces from '@/lib/toNumberWithSpaces'
+// import { Badge } from 'lucide-react'
 // import { Product } from '@/types' // Предполагается, что тип Product импортируется из файла с типами
 
 export function ProductModal({ product }) {
-	const { dispatch } = useCart()
+	const { state, dispatch } = useCart()
 
-	const formattedDescription = product.description
-		.split('\n')
-		.map(line => <p key={line}>{line.trim()}</p>)
+	const formattedDescription = product.description.split('\n').map(line => (
+		<p className='mb-3' key={line}>
+			{line.trim()}
+		</p>
+	))
+
+	const quantity = state.items[product.id.toString()] || 0
+	console.log('quantity: ', state)
+	const price = toNumberWithSpaces(product.price)
 
 	return (
 		<Dialog>
 			<DialogTrigger asChild>
 				<Button variant='outline'>Подробнее</Button>
 			</DialogTrigger>
-			<DialogContent className='sm:max-w-md'>
+			<DialogContent className='max-h-screen min-w-[70vw] overflow-y-scroll sm:max-w-md lg:max-w-screen-lg'>
 				<DialogHeader>
 					<DialogTitle>{product.title}</DialogTitle>
-					<DialogDescription>{formattedDescription}</DialogDescription>
+					{/* <DialogDescription>{formattedDescription}</DialogDescription> */}
+					<Badge className='w-fit bg-green-600'> {product.category}</Badge>
 				</DialogHeader>
-				<div className='flex items-center space-x-2'>
+				<div className='flex space-x-2'>
+					<div className='max-w-[700px]'>{formattedDescription}</div>
 					<Image
+						className='aspect-square max-h-[600px] w-full max-w-[600px] object-contain'
 						src={product.image || '/placeholder.svg'}
 						alt={product.title}
-						width={300}
-						height={300}
-						className='aspect-square w-full object-contain'
+						width={600}
+						height={600}
 					/>
 				</div>
-				<Button
-					variant='outline'
-					size='sm'
-					onClick={() =>
-						dispatch({ type: 'ADD_TO_CART', productId: product.id })
-					}
-				>
-					В корзину
-				</Button>
+				<p>
+					Цена: <span className='text-2xl font-bold'>{price} ₽</span>
+				</p>
+				<div className='flex items-center gap-8'>
+					<Button
+						className='w-fit'
+						variant='outline'
+						size='sm'
+						onClick={() =>
+							dispatch({ type: 'ADD_TO_CART', productId: product.id })
+						}
+					>
+						Добавить в корзину
+					</Button>
+					<p>В корзине: {quantity}</p>
+				</div>
 			</DialogContent>
 		</Dialog>
 	)

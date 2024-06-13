@@ -6,6 +6,13 @@ import { useCart } from '@/context/CartContext'
 import { Button } from '../ui/button'
 import { Badge } from '../ui/badge'
 import { useEffect, useState } from 'react'
+import {
+	Drawer,
+	DrawerContent,
+	DrawerFooter,
+	DrawerTrigger
+} from '../ui/drawer'
+import { MenuIcon } from 'lucide-react'
 
 export const Header = () => {
 	const { state } = useCart()
@@ -19,7 +26,7 @@ export const Header = () => {
 	}, [state.items])
 
 	return (
-		<header className='flex h-28 items-center px-4 lg:px-6'>
+		<header className='flex h-28 items-center justify-between px-4 lg:px-6'>
 			<Link href='/' className='flex items-center'>
 				<Image
 					src='/images/logo.png'
@@ -30,29 +37,62 @@ export const Header = () => {
 				/>
 				<span className='sr-only'>Органический Бустер</span>
 			</Link>
-			<nav className='ml-auto flex items-center gap-4 sm:gap-6'>
-				<NavLink href='/products'>Продукты</NavLink>
-				<NavLink href='/payment'>Доставка и оплата</NavLink>
-				<NavLink href='/contacts'>Контакты</NavLink>
-				<NavLink href='/cart'>
-					<Button className='inline-flex h-10 items-center justify-center rounded-md bg-green-600 px-8 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-green-700 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#388e3c] disabled:pointer-events-none disabled:opacity-50 dark:bg-green-600 dark:text-gray-950 dark:hover:bg-[#43a047]/90 dark:focus-visible:ring-[#388e3c]'>
-						Корзина
-						<Badge className='ml-4' variant='default'>
-							{count}
-						</Badge>
-					</Button>
-				</NavLink>
-			</nav>
-			{/* <CartModal /> */}
+			<div className='hidden sm:block'>
+				<Navigation count={count} />
+			</div>
+
+			<div className='block sm:hidden'>
+				<Drawer>
+					<DrawerTrigger>
+						<Button variant={'outline'}>
+							<MenuIcon />
+						</Button>
+					</DrawerTrigger>
+					<DrawerContent>
+						<DrawerFooter>
+							<div className='m-auto'>
+								<Navigation count={count} />
+							</div>
+						</DrawerFooter>
+					</DrawerContent>
+				</Drawer>
+			</div>
 		</header>
 	)
 }
 
-const NavLink = ({ href, children }: any) => (
+// Компонент NavLink
+const NavLink = ({
+	href,
+	children
+}: {
+	href: string
+	children: React.ReactNode
+}) => (
 	<Link
 		href={href}
-		className='text-sm font-medium underline-offset-4 hover:underline'
+		className='text-2xl font-medium underline-offset-4 hover:underline sm:text-sm'
 	>
 		{children}
 	</Link>
 )
+
+const Navigation = ({ count }: { count: number }) => {
+	return (
+		<nav className='flex flex-col items-center gap-4 sm:ml-auto sm:flex-row sm:gap-6'>
+			<NavLink href='/'>Главная</NavLink>
+			<NavLink href='/products'>Продукты</NavLink>
+			<NavLink href='/payment'>Доставка и оплата</NavLink>
+			<NavLink href='/contacts'>Контакты</NavLink>
+			{/* Кнопка Корзина */}
+			<NavLink href='/cart'>
+				<Button className='inline-flex h-10 items-center justify-center rounded-md bg-green-600 px-8 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-green-700 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#388e3c] disabled:pointer-events-none disabled:opacity-50 dark:bg-green-600 dark:text-gray-950 dark:hover:bg-[#43a047]/90 dark:focus-visible:ring-[#388e3c]'>
+					Корзина
+					<Badge className='ml-4' variant='default'>
+						{count}
+					</Badge>
+				</Button>
+			</NavLink>
+		</nav>
+	)
+}

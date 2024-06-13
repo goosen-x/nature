@@ -86,7 +86,7 @@ export const AdvantagesSection = () => {
 						/>
 					))}
 				</div>
-				<div className='flex flex-col items-start justify-center gap-4 sm:flex-row'>
+				<div className='flex flex-col items-center justify-center gap-4 sm:flex-row'>
 					<ContactModal />
 				</div>
 			</div>

@@ -1,8 +1,7 @@
 'use client'
 
-import axios from 'axios'
 import products from '@/data/products.json'
-import { useState, useMemo, useEffect } from 'react'
+import { useState, useMemo } from 'react'
 import { Button } from '@/components/ui/button'
 import { ProductCard } from '@/components/cards/ProductCard'
 import { FilterAccordion } from './widgets/FilterAccordion'
@@ -18,7 +17,6 @@ export default function Component() {
 	const filteredProducts = useMemo(() => {
 		return products
 			.filter(product => {
-				// Фильтр по категории
 				if (
 					selectedCategory &&
 					selectedCategory !== '' &&
@@ -26,7 +24,6 @@ export default function Component() {
 				) {
 					return false
 				}
-				// Фильтр по цене
 				if (priceRange === 'under1000' && Number(product.price) >= 1000) {
 					return false
 				}
@@ -80,7 +77,7 @@ export default function Component() {
 					/>
 				</div>
 				<div className='flex flex-col gap-8'>
-					<div className='flex items-center justify-between'>
+					<div className='flex flex-col items-center justify-between gap-4 sm:flex-row'>
 						<div className='grid gap-1'>
 							<h1 className='text-2xl font-bold'>Популярные товары</h1>
 							<p className='text-gray-500 dark:text-gray-400'>

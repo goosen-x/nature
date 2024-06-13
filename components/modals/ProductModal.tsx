@@ -6,16 +6,13 @@ import {
 	DialogTrigger,
 	DialogContent,
 	DialogHeader,
-	DialogTitle,
-	DialogDescription
+	DialogTitle
 } from '@/components/ui/dialog'
 import { Button } from '@/components/ui/button'
 import Image from 'next/image'
 import { useCart } from '@/context/CartContext'
 import { Badge } from '../ui/badge'
 import toNumberWithSpaces from '@/lib/toNumberWithSpaces'
-// import { Badge } from 'lucide-react'
-// import { Product } from '@/types' // Предполагается, что тип Product импортируется из файла с типами
 
 export function ProductModal({ product }) {
 	const { state, dispatch } = useCart()
@@ -38,10 +35,9 @@ export function ProductModal({ product }) {
 			<DialogContent className='max-h-screen min-w-[70vw] overflow-y-scroll sm:max-w-md lg:max-w-screen-lg'>
 				<DialogHeader>
 					<DialogTitle>{product.title}</DialogTitle>
-					{/* <DialogDescription>{formattedDescription}</DialogDescription> */}
 					<Badge className='w-fit bg-green-600'> {product.category}</Badge>
 				</DialogHeader>
-				<div className='flex space-x-2'>
+				<div className='flex flex-col space-x-2 sm:flex-row'>
 					<div className='max-w-[700px]'>{formattedDescription}</div>
 					<Image
 						className='aspect-square max-h-[600px] w-full max-w-[600px] object-contain'

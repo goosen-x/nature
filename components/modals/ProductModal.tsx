@@ -24,7 +24,6 @@ export function ProductModal({ product }) {
 	))
 
 	const quantity = state.items[product.id.toString()] || 0
-	console.log('quantity: ', state)
 	const price = toNumberWithSpaces(product.price)
 
 	return (

@@ -46,28 +46,40 @@ export const TransactionTable: React.FC<TransactionTableProps> = ({
 		<Table>
 			<TableHeader>
 				<TableRow>
-					<TableHead>Название</TableHead>
-					<TableHead>Категория</TableHead>
-					<TableHead>Количество</TableHead>
-					<TableHead>Цена</TableHead>
-					<TableHead>Сумма</TableHead>
+					<TableHead className='sm:text-s text-xs'>Название</TableHead>
+					<TableHead className='sm:text-s hidden text-xs md:table-cell'>
+						Категория
+					</TableHead>
+					<TableHead className='sm:text-s text-nowrap text-xs'>
+						Кол-во
+					</TableHead>
+					<TableHead className='sm:text-s text-xs'>Цена</TableHead>
+					<TableHead className='sm:text-s text-xs'>Сумма</TableHead>
 					<TableHead />
 				</TableRow>
 			</TableHeader>
 			<TableBody>
 				{transactions.map((transaction, index) => (
 					<TableRow key={index}>
-						<TableCell>{transaction.title}</TableCell>
-						<TableCell>
+						<TableCell className='text-xs sm:text-base'>
+							{transaction.title}
+						</TableCell>
+						<TableCell className='hidden text-xs sm:text-base md:table-cell'>
 							<span
 								className={`px-2 py-1 bg-${transaction.category.toLowerCase()}-200 text-${transaction.category.toLowerCase()}-800 rounded-md`}
 							>
 								{transaction.category}
 							</span>
 						</TableCell>
-						<TableCell>{transaction.quantity}</TableCell>
-						<TableCell>{transaction.price} ₽</TableCell>
-						<TableCell>{transaction.amount} ₽</TableCell>
+						<TableCell className='text-nowrap text-xs sm:text-base'>
+							{transaction.quantity}
+						</TableCell>
+						<TableCell className='text-nowrap text-xs sm:text-base'>
+							{toNumberWithSpaces(transaction.price)} ₽
+						</TableCell>
+						<TableCell className='text-nowrap text-xs sm:text-base'>
+							{toNumberWithSpaces(transaction.amount)} ₽
+						</TableCell>
 						<TableCell>
 							<Button
 								variant={'outline'}

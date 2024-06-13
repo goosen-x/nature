@@ -5,6 +5,7 @@ import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/footer'
 import { CartProvider } from '@/context/CartContext'
 import Head from 'next/head'
+import { MetaManifest } from '@/components/meta/MetaManifest'
 
 const prata = Prata({
 	weight: ['400'],
@@ -14,7 +15,7 @@ const prata = Prata({
 
 export const metadata: Metadata = {
 	title: 'NSP Health Shop',
-	description: `Интернет-магазин биодобавок от Nature's Sunshine`
+	description: `Интернет-магазин биодобавок от Natures Sunshine`
 }
 
 export default function RootLayout({
@@ -23,10 +24,10 @@ export default function RootLayout({
 	children: React.ReactNode
 }>) {
 	return (
-		<html lang='en'>
-			{/* <Head>
+		<html lang='ru'>
+			<Head>
 				<MetaManifest />
-			</Head> */}
+			</Head>
 			<body className={prata.className}>
 				<CartProvider>
 					<Header />

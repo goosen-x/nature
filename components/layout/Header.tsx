@@ -5,7 +5,7 @@ import Image from 'next/image'
 import { useCart } from '@/context/CartContext'
 import { Button } from '../ui/button'
 import { Badge } from '../ui/badge'
-import { useEffect, useState } from 'react'
+import { ComponentPropsWithoutRef, useEffect, useState } from 'react'
 import {
 	Drawer,
 	DrawerContent,
@@ -17,6 +17,7 @@ import { MenuIcon } from 'lucide-react'
 export const Header = () => {
 	const { state } = useCart()
 	const [count, setCount] = useState(0)
+	const [isOpen, setIsOpen] = useState(false)
 
 	useEffect(() => {
 		const totalItems = Object.values(state.items).reduce((acc, item) => {
@@ -38,11 +39,11 @@ export const Header = () => {
 				<span className='sr-only'>Органический Бустер</span>
 			</Link>
 			<div className='hidden sm:block'>
-				<Navigation count={count} />
+				<Navigation setIsOpen={() => {}} count={count} />
 			</div>
 
 			<div className='block sm:hidden'>
-				<Drawer>
+				<Drawer open={isOpen} onOpenChange={setIsOpen}>
 					<DrawerTrigger>
 						<Button variant={'outline'}>
 							<MenuIcon />
@@ -51,7 +52,7 @@ export const Header = () => {
 					<DrawerContent>
 						<DrawerFooter>
 							<div className='m-auto'>
-								<Navigation count={count} />
+								<Navigation count={count} setIsOpen={setIsOpen} />
 							</div>
 						</DrawerFooter>
 					</DrawerContent>
@@ -64,28 +65,43 @@ export const Header = () => {
 // Компонент NavLink
 const NavLink = ({
 	href,
-	children
+	children,
+	...rest
 }: {
 	href: string
 	children: React.ReactNode
-}) => (
+} & ComponentPropsWithoutRef<'a'>) => (
 	<Link
 		href={href}
 		className='text-2xl font-medium underline-offset-4 hover:underline sm:text-sm'
+		{...rest}
 	>
 		{children}
 	</Link>
 )
 
-const Navigation = ({ count }: { count: number }) => {
+const Navigation = ({
+	count,
+	setIsOpen
+}: {
+	count: number
+	setIsOpen: (boolean) => void
+}) => {
 	return (
 		<nav className='flex flex-col items-center gap-4 sm:ml-auto sm:flex-row sm:gap-6'>
-			<NavLink href='/'>Главная</NavLink>
-			<NavLink href='/products'>Продукты</NavLink>
-			<NavLink href='/payment'>Доставка и оплата</NavLink>
-			<NavLink href='/contacts'>Контакты</NavLink>
-			{/* Кнопка Корзина */}
-			<NavLink href='/cart'>
+			<NavLink onClick={() => setIsOpen(false)} href='/'>
+				Главная
+			</NavLink>
+			<NavLink onClick={() => setIsOpen(false)} href='/products'>
+				Продукты
+			</NavLink>
+			<NavLink onClick={() => setIsOpen(false)} href='/payment'>
+				Доставка и оплата
+			</NavLink>
+			<NavLink onClick={() => setIsOpen(false)} href='/contacts'>
+				Контакты
+			</NavLink>
+			<NavLink onClick={() => setIsOpen(false)} href='/cart'>
 				<Button className='inline-flex h-10 items-center justify-center rounded-md bg-green-600 px-8 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-green-700 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#388e3c] disabled:pointer-events-none disabled:opacity-50 dark:bg-green-600 dark:text-gray-950 dark:hover:bg-[#43a047]/90 dark:focus-visible:ring-[#388e3c]'>
 					Корзина
 					<Badge className='ml-4' variant='default'>

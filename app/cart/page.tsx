@@ -29,15 +29,14 @@ const CartPage: React.FC = () => {
 
 	return (
 		<div className='container mx-auto px-4 py-8 md:py-12'>
-			<h1 className='mb-6 text-2xl font-bold'>Корзина</h1>
-			<main className='flex-grow p-6'>
+			<main className='flex-grow p-0 sm:p-6'>
+				<div className='mb-4 flex items-center justify-between'>
+					<h1 className='text-lg font-medium'>Корзина</h1>
+				</div>
+				<TransactionTable transactions={cartItems as Transaction[]} />
 				<div className='flex w-full justify-end'>
 					<ContactModal />
 				</div>
-				<div className='mb-4 flex items-center justify-between'>
-					<h1 className='text-lg font-medium'>Transactions</h1>
-				</div>
-				<TransactionTable transactions={cartItems as Transaction[]} />
 			</main>
 		</div>
 	)

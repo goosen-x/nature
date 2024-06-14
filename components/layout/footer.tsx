@@ -1,4 +1,3 @@
-import { Send } from 'lucide-react'
 import Link from 'next/link'
 
 export function Footer() {
@@ -13,7 +12,7 @@ export function Footer() {
 					</Link>
 					<div className='flex flex-col gap-2 text-gray-600 dark:text-gray-400'>
 						<div>Офис: г. Москва, ул. Хромова, д. 20, оф. 112</div>
-						<div>Телефон: +7 (926) 707-80-64</div>
+						<div>Телефон: +7 (985) 894-91-19</div>
 						<div>Email: medvedeva.nsp@ro.ru</div>
 					</div>
 				</div>
@@ -36,7 +35,7 @@ export function Footer() {
 					<div className='flex gap-4'>
 						<Link
 							className='hover:text-green-600'
-							href='https://t.me/+79267078064'
+							href='https://t.me/+79858949119'
 							target='_blank'
 						>
 							<svg
@@ -53,7 +52,7 @@ export function Footer() {
 						</Link>
 						<Link
 							className='hover:text-green-600'
-							href='https://wa.me/79267078064'
+							href='https://wa.me/79858949119'
 							target='_blank'
 						>
 							<svg

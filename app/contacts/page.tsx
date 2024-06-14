@@ -23,7 +23,7 @@ export default function ContactPage() {
 						2
 					</p>
 					<p>
-						<strong>Телефон:</strong> +7 (926) 707-80-64
+						<strong>Телефон:</strong> +7 (985) 894-91-19
 					</p>
 					<p>
 						<strong>Email:</strong>{' '}
@@ -35,7 +35,7 @@ export default function ContactPage() {
 					</p>
 					<div className='mt-4'>
 						<p>Независимый дистрибьютер Медведева&nbsp;А.С.</p>
-						<p>Телефон: +7 (926) 707-80-64</p>
+						<p>Телефон: +7 (985) 894-91-19</p>
 					</div>
 				</div>
 			</section>

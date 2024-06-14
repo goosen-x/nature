@@ -4,8 +4,6 @@ import { Prata } from 'next/font/google'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/footer'
 import { CartProvider } from '@/context/CartContext'
-import Head from 'next/head'
-import { MetaManifest } from '@/components/meta/MetaManifest'
 
 const prata = Prata({
 	weight: ['400'],

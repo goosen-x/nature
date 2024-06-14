@@ -27,7 +27,7 @@ export const Header = () => {
 
 	return (
 		<header className='flex h-28 items-center justify-between px-4 lg:px-6'>
-			<Link href='/' className='flex items-center'>
+			<Link href='/' className='flex shrink-0 items-center'>
 				<Image
 					src='/images/logo.png'
 					alt='logo'
@@ -37,11 +37,11 @@ export const Header = () => {
 				/>
 				<span className='sr-only'>Органический Бустер</span>
 			</Link>
-			<div className='hidden sm:block'>
+			<div className='hidden lg:block'>
 				<Navigation setIsOpen={() => {}} count={count} />
 			</div>
 
-			<div className='block sm:hidden'>
+			<div className='block lg:hidden'>
 				<Drawer open={isOpen} onOpenChange={setIsOpen}>
 					<DrawerTrigger>
 						<div>
@@ -72,7 +72,7 @@ const NavLink = ({
 } & ComponentPropsWithoutRef<'a'>) => (
 	<Link
 		href={href}
-		className='text-2xl font-medium underline-offset-4 hover:underline sm:text-sm'
+		className='text-2xl font-medium underline-offset-4 hover:underline lg:text-sm'
 		{...rest}
 	>
 		{children}
@@ -87,7 +87,7 @@ const Navigation = ({
 	setIsOpen: (boolean) => void
 }) => {
 	return (
-		<nav className='flex flex-col items-center gap-4 sm:ml-auto sm:flex-row sm:gap-6'>
+		<nav className='flex flex-col items-center gap-4 lg:ml-auto lg:flex-row lg:gap-6'>
 			<NavLink onClick={() => setIsOpen(false)} href='/'>
 				Главная
 			</NavLink>

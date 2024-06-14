@@ -36,7 +36,7 @@ export function ProductModal({ product }) {
 					<DialogTitle>{product.title}</DialogTitle>
 					<Badge className='w-fit bg-green-600'> {product.category}</Badge>
 				</DialogHeader>
-				<div className='flex flex-col space-x-2 sm:flex-row'>
+				<div className='flex flex-col min-[1020px]:flex-row'>
 					<div className='max-w-[700px]'>{formattedDescription}</div>
 					<Image
 						className='aspect-square max-h-[600px] w-full max-w-[600px] object-contain'

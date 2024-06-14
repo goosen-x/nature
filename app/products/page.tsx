@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button'
 import { ProductCard } from '@/components/cards/ProductCard'
 import { FilterAccordion } from './widgets/FilterAccordion'
 import { SortDropdown } from './widgets/SortDropdown'
+import { Metadata } from 'next'
 
 export default function Component() {
 	const [selectedCategory, setSelectedCategory] = useState('')

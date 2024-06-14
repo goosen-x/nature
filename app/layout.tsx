@@ -15,7 +15,12 @@ const prata = Prata({
 
 export const metadata: Metadata = {
 	title: 'NSP Health Shop',
-	description: `Интернет-магазин биодобавок от Natures Sunshine`
+	description: 'Интернет-магазин биодобавок от Natures Sunshine',
+	keywords: ['NSP', 'Natures Sunshine', 'Health', 'Shop', 'Bio', 'Food'],
+	openGraph: {
+		title: 'NSP Health Shop',
+		description: 'Интернет-магазин биодобавок от Natures Sunshine'
+	}
 }
 
 export default function RootLayout({
@@ -25,9 +30,6 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang='ru'>
-			<Head>
-				<MetaManifest />
-			</Head>
 			<body className={prata.className}>
 				<CartProvider>
 					<Header />

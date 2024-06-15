@@ -80,7 +80,7 @@ export function ProductModal({ product }) {
 							</Button>
 						</Link>
 						<DialogClose>
-							<Button onClick={close} variant='secondary' size='sm'>
+							<Button variant='secondary' size='sm'>
 								Закрыть
 							</Button>
 						</DialogClose>

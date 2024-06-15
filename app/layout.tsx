@@ -18,7 +18,8 @@ export const metadata: Metadata = {
 	openGraph: {
 		title: 'NSP Health Shop',
 		description: 'Интернет-магазин биодобавок от Natures Sunshine'
-	}
+	},
+	metadataBase: new URL(String(process.env.SITE_URL))
 }
 
 export default function RootLayout({

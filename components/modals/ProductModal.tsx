@@ -13,6 +13,7 @@ import Image from 'next/image'
 import { useCart } from '@/context/CartContext'
 import { Badge } from '../ui/badge'
 import toNumberWithSpaces from '@/lib/toNumberWithSpaces'
+import Link from 'next/link'
 
 export function ProductModal({ product }) {
 	const { state, dispatch } = useCart()
@@ -25,6 +26,14 @@ export function ProductModal({ product }) {
 
 	const quantity = state.items[product.id.toString()] || 0
 	const price = toNumberWithSpaces(product.price)
+
+	const add = () => {
+		dispatch({ type: 'ADD_TO_CART', productId: product.id })
+	}
+
+	const remove = () => {
+		dispatch({ type: 'REMOVE_FROM_CART', productId: product.id })
+	}
 
 	return (
 		<Dialog>
@@ -50,17 +59,21 @@ export function ProductModal({ product }) {
 					Цена: <span className='text-2xl font-bold'>{price} ₽</span>
 				</p>
 				<div className='flex items-center gap-8'>
-					<Button
-						className='w-fit'
-						variant='outline'
-						size='sm'
-						onClick={() =>
-							dispatch({ type: 'ADD_TO_CART', productId: product.id })
-						}
-					>
-						Добавить в корзину
-					</Button>
-					<p>В корзине: {quantity}</p>
+					<Link href={`/cart`}>
+						<Button className='w-fit' variant='outline' size='sm'>
+							Перейти в корзину
+						</Button>
+					</Link>
+					<div>
+						В корзине:{' '}
+						<Button onClick={remove} variant={'outline'}>
+							-
+						</Button>{' '}
+						{quantity}{' '}
+						<Button onClick={add} variant={'outline'}>
+							+
+						</Button>
+					</div>
 				</div>
 			</DialogContent>
 		</Dialog>

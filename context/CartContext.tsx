@@ -27,9 +27,10 @@ type CartState = {
 
 type CartAction =
 	| { type: 'ADD_TO_CART'; productId: number }
+	| { type: 'REMOVE_ONE_FROM_CART'; productId: number }
 	| { type: 'REMOVE_FROM_CART'; productId: number }
 	| { type: 'CLEAR_CART' }
-	| { type: 'REMOVE_ALL_FROM_CART'; productId: number } // Новый тип действия для удаления всех товаров
+	| { type: 'REMOVE_ALL_FROM_CART'; productId: number }
 
 const CartContext = createContext<
 	| {
@@ -74,6 +75,12 @@ function cartReducer(state: CartState, action: CartAction): CartState {
 			newState = { ...state, items: restItems }
 			cartLocalStorage(newState) // Сохранение в localStorage
 			return newState
+
+		case 'REMOVE_ONE_FROM_CART':
+			const items = { ...state.items }
+			if (items[action.productId] > 1) {
+				items[action.productId] -= 1
+			}
 		default:
 			throw new Error(`Unhandled action type`)
 	}

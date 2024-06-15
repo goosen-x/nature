@@ -34,7 +34,7 @@ const formSchema = z.object({
 export function ContactForm() {
 	const [isSubmitting, setIsSubmitting] = useState(false)
 	const [responseMessage, setResponseMessage] = useState('')
-	const { state } = useCart()
+	const { state, dispatch } = useCart()
 	const items = state.items
 
 	const form = useForm<z.infer<typeof formSchema>>({
@@ -47,6 +47,7 @@ export function ContactForm() {
 	})
 
 	async function onSubmit(values: z.infer<typeof formSchema>) {
+		dispatch({ type: 'CLEAR_CART' })
 		setIsSubmitting(true)
 		setResponseMessage('')
 

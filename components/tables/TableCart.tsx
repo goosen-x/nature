@@ -57,6 +57,14 @@ export const TransactionTable: React.FC<TransactionTableProps> = ({
 	// 	return total + transaction.amount
 	// }, 0)
 
+	const add = (productId: number) => {
+		dispatch({ type: 'ADD_TO_CART', productId })
+	}
+
+	const remove = (productId: number) => {
+		dispatch({ type: 'REMOVE_FROM_CART', productId })
+	}
+
 	return (
 		<Table>
 			<TableHeader>
@@ -87,7 +95,23 @@ export const TransactionTable: React.FC<TransactionTableProps> = ({
 							</span>
 						</TableCell>
 						<TableCell className='text-nowrap text-xs sm:text-base'>
-							{transaction.quantity}
+							<div>
+								<div>
+									<Button
+										onClick={() => remove(transaction.id)}
+										variant={'outline'}
+									>
+										-
+									</Button>
+									<span className='mx-3'>{transaction.quantity}</span>
+									<Button
+										onClick={() => add(transaction.id)}
+										variant={'outline'}
+									>
+										+
+									</Button>
+								</div>
+							</div>
 						</TableCell>
 						<TableCell className='text-nowrap text-xs sm:text-base'>
 							{toNumberWithSpaces(transaction.price)} ₽

@@ -1,5 +1,6 @@
 'use client'
 
+import { useCart } from '@/context/CartContext'
 import { ContactForm } from '../forms/ContactForm'
 import { Button } from '../ui/button'
 import {
@@ -12,6 +13,11 @@ import {
 } from '../ui/dialog'
 
 export const ContactModal: React.FC = () => {
+	const { state } = useCart()
+	const items = state.items
+
+	const isProducts = Object.keys(items).length > 0
+
 	return (
 		<Dialog>
 			<DialogTrigger asChild>
@@ -21,8 +27,13 @@ export const ContactModal: React.FC = () => {
 			</DialogTrigger>
 			<DialogContent className='sm:max-w-md'>
 				<DialogHeader>
-					<DialogTitle>{'Оформление заказа'}</DialogTitle>
-					<DialogDescription>{'Заполните форму'}</DialogDescription>
+					<DialogTitle>Оформить заказ</DialogTitle>
+					<DialogDescription>
+						{' '}
+						{isProducts
+							? 'Заполните форму'
+							: 'Корзина пустая, менеджер проконсультирует вас по наличию товаров'}
+					</DialogDescription>
 				</DialogHeader>
 				<ContactForm />
 			</DialogContent>

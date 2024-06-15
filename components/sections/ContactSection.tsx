@@ -20,13 +20,13 @@ export const ContactSection = () => {
 				<div className='mx-auto w-full max-w-sm space-y-2'>
 					<form className='grid grid-cols-2 space-x-2'>
 						<Input
-							className='max-w-lg flex-1'
+							className='max-w-lg flex-1 text-xs sm:text-sm'
 							placeholder='Введите свой email'
 							type='email'
 						/>
 
 						<Button
-							className='hover:bg-green-700focus-visible:outline-none inline-flex h-10 items-center justify-center rounded-md bg-green-600 px-8 text-sm font-medium text-gray-50 shadow transition-colors focus-visible:ring-1 focus-visible:ring-[#388e3c] disabled:pointer-events-none disabled:opacity-50 dark:bg-green-600 dark:text-gray-950 dark:hover:bg-[#43a047]/90 dark:focus-visible:ring-[#388e3c]'
+							className='hover:bg-green-700focus-visible:outline-none inline-flex h-10 items-center justify-center rounded-md bg-green-600 px-8 text-xs font-medium text-gray-50 shadow transition-colors focus-visible:ring-1 focus-visible:ring-[#388e3c] disabled:pointer-events-none disabled:opacity-50 dark:bg-green-600 dark:text-gray-950 dark:hover:bg-[#43a047]/90 dark:focus-visible:ring-[#388e3c] sm:text-sm'
 							type='submit'
 						>
 							Получать обновления

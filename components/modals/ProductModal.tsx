@@ -6,7 +6,8 @@ import {
 	DialogTrigger,
 	DialogContent,
 	DialogHeader,
-	DialogTitle
+	DialogTitle,
+	DialogClose
 } from '@/components/ui/dialog'
 import { Button } from '@/components/ui/button'
 import Image from 'next/image'
@@ -42,7 +43,10 @@ export function ProductModal({ product }) {
 			</DialogTrigger>
 			<DialogContent className='max-h-screen min-w-[70vw] overflow-y-scroll sm:max-w-md lg:max-w-screen-lg'>
 				<DialogHeader>
-					<DialogTitle>{product.title}</DialogTitle>
+					<DialogTitle className='mb-2 text-left sm:text-center'>
+						{' '}
+						{product.title}
+					</DialogTitle>
 					<Badge className='w-fit bg-green-600'> {product.category}</Badge>
 				</DialogHeader>
 				<div className='flex flex-col min-[1020px]:flex-row'>
@@ -58,21 +62,28 @@ export function ProductModal({ product }) {
 				<p>
 					Цена: <span className='text-2xl font-bold'>{price} ₽</span>
 				</p>
-				<div className='flex items-center gap-8'>
-					<Link href={`/cart`}>
-						<Button className='w-fit' variant='outline' size='sm'>
-							Перейти в корзину
-						</Button>
-					</Link>
+				<div className='flex flex-col gap-8 sm:flex-row sm:items-center'>
 					<div>
 						В корзине:{' '}
 						<Button onClick={remove} variant={'outline'}>
 							-
 						</Button>{' '}
-						{quantity}{' '}
+						<span className='mx-3'>{quantity}</span>
 						<Button onClick={add} variant={'outline'}>
 							+
 						</Button>
+					</div>
+					<div className='flex justify-between gap-8'>
+						<Link href={`/cart`}>
+							<Button className='w-fit' variant='outline' size='sm'>
+								Перейти в корзину
+							</Button>
+						</Link>
+						<DialogClose>
+							<Button onClick={close} variant='secondary' size='sm'>
+								Закрыть
+							</Button>
+						</DialogClose>
 					</div>
 				</div>
 			</DialogContent>

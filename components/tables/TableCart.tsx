@@ -77,7 +77,9 @@ export const TransactionTable: React.FC<TransactionTableProps> = ({
 						Кол-во
 					</TableHead>
 					<TableHead className='sm:text-s text-xs'>Цена</TableHead>
-					<TableHead className='sm:text-s text-xs'>Сумма</TableHead>
+					<TableHead className='sm:text-s hidden text-xs md:table-cell'>
+						Сумма
+					</TableHead>
 					<TableHead />
 				</TableRow>
 			</TableHeader>
@@ -116,7 +118,7 @@ export const TransactionTable: React.FC<TransactionTableProps> = ({
 						<TableCell className='text-nowrap text-xs sm:text-base'>
 							{toNumberWithSpaces(transaction.price)} ₽
 						</TableCell>
-						<TableCell className='text-nowrap text-xs sm:text-base'>
+						<TableCell className='hidden text-nowrap text-xs sm:text-base md:table-cell'>
 							{toNumberWithSpaces(transaction.amount)} ₽
 						</TableCell>
 						<TableCell>

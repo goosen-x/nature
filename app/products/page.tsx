@@ -7,6 +7,7 @@ import { ProductCard } from '@/components/cards/ProductCard'
 import { FilterAccordion } from './widgets/FilterAccordion'
 import { SortDropdown } from './widgets/SortDropdown'
 import { Metadata } from 'next'
+import { ContactForm } from '@/components/forms/ContactForm'
 
 export default function Component() {
 	const [selectedCategory, setSelectedCategory] = useState('')
@@ -99,6 +100,15 @@ export default function Component() {
 						>
 							Показать ещё {qtyShowMore} товаров
 						</Button>
+					)}
+					{filteredProducts.length === 0 && (
+						<div className='w-full max-w-[700px] rounded-lg bg-green-600/20 p-3'>
+							<p className='mb-8 text-xl'>
+								Не нашли интересующий вас товар? Оставьте заявку и менеджер
+								проконсультирует вас по подходящему продукту.
+							</p>
+							<ContactForm />
+						</div>
 					)}
 				</div>
 			</div>

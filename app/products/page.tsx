@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button'
 import { ProductCard } from '@/components/cards/ProductCard'
 import { FilterAccordion } from './widgets/FilterAccordion'
 import { SortDropdown } from './widgets/SortDropdown'
+import { Metadata } from 'next'
 import { ContactForm } from '@/components/forms/ContactForm'
 
 export default function Component() {
@@ -83,7 +84,6 @@ export default function Component() {
 						selectedPriceRange={priceRange}
 					/>
 				</div>
-				å
 				<div className='flex flex-col gap-8'>
 					<div className='flex flex-col items-center justify-between gap-4 sm:flex-row'>
 						<div className='grid gap-1'>

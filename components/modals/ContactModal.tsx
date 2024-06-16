@@ -13,11 +13,6 @@ import {
 } from '../ui/dialog'
 
 export const ContactModal: React.FC = () => {
-	const { state } = useCart()
-	const items = state.items
-
-	const isProducts = Object.keys(items).length > 0
-
 	return (
 		<Dialog>
 			<DialogTrigger asChild>
@@ -28,12 +23,7 @@ export const ContactModal: React.FC = () => {
 			<DialogContent className='sm:max-w-md'>
 				<DialogHeader>
 					<DialogTitle>Оформить заказ</DialogTitle>
-					<DialogDescription>
-						{' '}
-						{isProducts
-							? 'Заполните форму'
-							: 'Корзина пустая, менеджер проконсультирует вас по наличию товаров'}
-					</DialogDescription>
+					<DialogDescription>Заполните форму</DialogDescription>
 				</DialogHeader>
 				<ContactForm />
 			</DialogContent>

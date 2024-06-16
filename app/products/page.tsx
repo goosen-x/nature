@@ -6,7 +6,6 @@ import { Button } from '@/components/ui/button'
 import { ProductCard } from '@/components/cards/ProductCard'
 import { FilterAccordion } from './widgets/FilterAccordion'
 import { SortDropdown } from './widgets/SortDropdown'
-import { Metadata } from 'next'
 import { ContactForm } from '@/components/forms/ContactForm'
 
 export default function Component() {
@@ -66,6 +65,12 @@ export default function Component() {
 		return [...categoriesSet]
 	}, [])
 
+	const clearFilter = () => {
+		setSelectedCategory('')
+		setPriceRange('all')
+		setSort('low')
+	}
+
 	return (
 		<div className='w-full'>
 			<div className='container mx-auto grid gap-8 py-8 md:grid-cols-[240px_1fr]'>
@@ -78,6 +83,7 @@ export default function Component() {
 						selectedPriceRange={priceRange}
 					/>
 				</div>
+				å
 				<div className='flex flex-col gap-8'>
 					<div className='flex flex-col items-center justify-between gap-4 sm:flex-row'>
 						<div className='grid gap-1'>
@@ -86,7 +92,13 @@ export default function Component() {
 								Выбирайте из широкого ассортимента
 							</p>
 						</div>
-						<SortDropdown sort={sort} setSort={setSort} />
+						<div className='flex gap-2'>
+							<Button onClick={clearFilter} variant={'ghost'}>
+								{' '}
+								Очистить фильтры
+							</Button>
+							<SortDropdown sort={sort} setSort={setSort} />
+						</div>
 					</div>
 					<div className='grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
 						{filteredProducts.slice(0, visibleProducts).map(product => (

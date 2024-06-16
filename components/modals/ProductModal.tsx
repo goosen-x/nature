@@ -44,7 +44,6 @@ export function ProductModal({ product }) {
 			<DialogContent className='max-h-screen min-w-[70vw] overflow-y-scroll sm:max-w-md lg:max-w-screen-lg'>
 				<DialogHeader>
 					<DialogTitle className='mb-2 text-left sm:text-center'>
-						{' '}
 						{product.title}
 					</DialogTitle>
 					<Badge className='w-fit bg-green-600'> {product.category}</Badge>

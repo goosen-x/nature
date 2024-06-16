@@ -2,9 +2,8 @@
 import Script from 'next/script'
 
 export function YandexMetrica() {
-	// { ymId }: { ymId: string | undefined }
-	const ymId = process.env.YANDEX_METRIKA_ID
-	console.log('ymId: ', ymId)
+	const ymId = '97585600'
+
 	return (
 		<>
 			<Script

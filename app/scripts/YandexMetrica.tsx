@@ -1,7 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
 import Script from 'next/script'
 
-export function YandexMetrica({ ymId }: { ymId: string | undefined }) {
+export function YandexMetrica() {
+	// { ymId }: { ymId: string | undefined }
+	const ymId = process.env.YANDEX_METRIKA_ID
+	console.log('ymId: ', ymId)
 	return (
 		<>
 			<Script

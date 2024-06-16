@@ -4,8 +4,6 @@ import { Prata } from 'next/font/google'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/footer'
 import { CartProvider } from '@/context/CartContext'
-import Head from 'next/head'
-import Script from 'next/script'
 import { YandexMetrica } from './scripts/YandexMetrica'
 
 const prata = Prata({
@@ -33,7 +31,7 @@ export default function RootLayout({
 	return (
 		<html lang='ru'>
 			<body className={prata.className}>
-				<YandexMetrica ymId={process.env.YANDEX_METRIKA_ID} />
+				<YandexMetrica />
 				<CartProvider>
 					<Header />
 					<main className='flex min-h-[100dvh] flex-col border-y'>

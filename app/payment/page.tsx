@@ -22,7 +22,7 @@ export default function PaymentPage() {
 										<td className='px-4 py-3'>1-2 дня</td>
 									</tr>
 									<tr className='border-b border-gray-200 dark:border-gray-700'>
-										<td className='px-4 py-3'>СДЭК</td>
+										<td className='px-4 py-3'>Курьерская служба</td>
 										<td className='px-4 py-3'>от 300 ₽</td>
 										<td className='px-4 py-3'>2-5 дней</td>
 									</tr>
@@ -105,8 +105,8 @@ export default function PaymentPage() {
 							<p className='mt-2 text-gray-700'>
 								Доставка осуществляется до двери или Вы можете забрать товар со
 								склада перевозчика в Вашем городе (ПВЗ). Срок прибытия заказа до
-								двери уточняйте у перевозчика по телефону или на его сайте
-								(только СДЕК) по номеру отправления.
+								двери уточняйте у перевозчика по телефону или на его сайте по
+								номеру отправления.
 							</p>
 							<p className='mt-2 text-gray-700'>
 								При получении заказа, в присутствии представителя перевозчика,

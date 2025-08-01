@@ -46,7 +46,10 @@ export function ProductModal({ product }) {
 					<DialogTitle className='mb-2 text-left sm:text-center'>
 						{product.title}
 					</DialogTitle>
-					<Badge className='w-fit bg-green-600'> {product.category}</Badge>
+					<Badge className='w-fit bg-green-600'>
+						{' '}
+						{product.category?.name || product.category}
+					</Badge>
 				</DialogHeader>
 				<div className='flex flex-col min-[1020px]:flex-row'>
 					<div className='max-w-[700px]'>{formattedDescription}</div>

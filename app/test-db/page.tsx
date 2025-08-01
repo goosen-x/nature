@@ -1,13 +1,21 @@
 'use client'
 
 import { useProducts } from '@/hooks/useProducts'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Suspense } from 'react'
 import { ProductWithRelations } from '@/lib/supabase'
 import EditProductModal from '@/components/modals/EditProductModal'
 import TestPageLoginForm from '@/components/forms/TestPageLoginForm'
 import { useSearchParams } from 'next/navigation'
 
 export default function TestDBPage() {
+	return (
+		<Suspense fallback={<div>Загрузка...</div>}>
+			<TestDBPageContent />
+		</Suspense>
+	)
+}
+
+function TestDBPageContent() {
 	const searchParams = useSearchParams()
 	const secret = searchParams.get('secret')
 

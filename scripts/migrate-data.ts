@@ -19,15 +19,15 @@ async function migrateData() {
 
 	try {
 		// Создаем уникальные категории
-		const categories = [
-			...new Set(productsData.map((p: JsonProduct) => p.category))
-		]
+		const categories = Array.from(
+			new Set(productsData.map((p: JsonProduct) => p.category))
+		)
 		console.log(`Найдено ${categories.length} уникальных категорий`)
 
 		// Создаем уникальные компании
-		const companies = [
-			...new Set(productsData.map((p: JsonProduct) => p.company))
-		]
+		const companies = Array.from(
+			new Set(productsData.map((p: JsonProduct) => p.company))
+		)
 		console.log(`Найдено ${companies.length} уникальных компаний`)
 
 		// Вставляем категории

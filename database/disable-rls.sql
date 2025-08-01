@@ -1,0 +1,4 @@
+-- Временно отключаем RLS для миграции данных
+ALTER TABLE categories DISABLE ROW LEVEL SECURITY;
+ALTER TABLE companies DISABLE ROW LEVEL SECURITY;
+ALTER TABLE products DISABLE ROW LEVEL SECURITY; 
